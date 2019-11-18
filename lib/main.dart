@@ -41,6 +41,14 @@ class MyApp extends StatelessWidget {
     );
 
     return MaterialApp(
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.red)
+          ),
+          fillColor: Colors.red
+        )
+      ),
       home: launcScreen(),
     );
   }
@@ -103,7 +111,8 @@ class _launchScreen extends State<launcScreen> {
         if (value.isEmpty) {
           pushToLogin();
         } else {
-          pushToDashboard();
+          pushToLogin();
+          // pushToDashboard();
         }
       }
     );

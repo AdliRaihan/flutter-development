@@ -25,13 +25,6 @@ class _dashboard extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            dashboardComponents(
-              size: MediaQuery.of(context).size,
-            ),
-            dashboardMiddleComponents(
-              size: MediaQuery.of(context).size,
-            ),
-            dashboardMiddleBottomContent()
           ],
         ),
       ),

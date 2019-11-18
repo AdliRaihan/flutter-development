@@ -32,7 +32,7 @@ class registerModel {
 
   Future<String> getUsername (String value) async {
     final SharedPreferences prefs =  await SharedPreferences.getInstance();
-    return prefs.getString(_kusername);
+    return prefs.getString(_kusername) ?? "";
   }
   
   Future<String> setEmail (String value) async {
