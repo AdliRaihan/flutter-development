@@ -1,6 +1,7 @@
 
 import 'package:adli_train/scenes/Extensions/colorExtension.dart';
 import 'package:adli_train/scenes/pages/login/login.dart';
+import 'package:adli_train/scenes/pages/member/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 
@@ -331,8 +332,10 @@ class __pin extends State<_pin> {
       context:  context,
       barrierDismissible: true,
       builder: (context) {
-        new Future.delayed(new Duration(seconds: 60), () {
+        new Future.delayed(new Duration(seconds: 2), () {
           Navigator.of(context).pop();
+          Route router = MaterialPageRoute(builder: (context) => dashboard());
+          Navigator.of(context).pushAndRemoveUntil(router, (Route<dynamic> router ) => false);
         });
         return Center(
           child: Column(

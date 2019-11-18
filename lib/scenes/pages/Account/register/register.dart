@@ -53,7 +53,7 @@ class _registerStateHolder extends State<_registerState>{
         centerTitle: false,
         backgroundColor: colorExtension().purpleCommonRightColor,
         title: Container(
-          padding: EdgeInsets.only(top: 9),
+          padding: EdgeInsets.only(top: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
