@@ -195,9 +195,9 @@ class dashboardWidget_middle extends StatelessWidget {
       height: 140,
       padding: EdgeInsets.only(top: 20,bottom: 0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          _createTitle("Lorem Ipsum"),
+          _createTitle("Quick Menu"),
           _buildTicket()
         ],
       ),
@@ -209,7 +209,7 @@ class dashboardWidget_middle extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.w600
+        fontWeight: FontWeight.w600,
       ),
     );  
 
@@ -269,12 +269,24 @@ class dashboardWidget_middle extends StatelessWidget {
               Expanded(
                 child: Image.asset("assets/images/ic_blue_receipt.png"),
               ),
+              Container(
+                margin: EdgeInsets.only(top: 10,bottom: 5),
+                height: 1,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black12
+                    )
+                  )
+                ),
+              ),
               Expanded(
                 child: Text(
                   'Lorem Ipsum',
                   style: TextStyle(
                     color: (selected) ? Colors.white : Colors.black54,
-                    fontSize: 12
+                    fontSize: 12,
+                    fontFamily: 'Gill Sans'
                   ),
                 ),
               )
@@ -322,14 +334,14 @@ class dashboardWidget_vertical extends StatelessWidget  {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Title',
+                'Balance',
                 style: TextStyle(
                   fontFamily: 'Gill Sans',
                   fontWeight: FontWeight.bold
                 ),
               ),
               Text(
-                'Description',
+                'Your Current Balance',
                 style: TextStyle(
                   fontSize: 10,
                   color: Colors.black54
@@ -353,7 +365,6 @@ class dashboardWidget_vertical extends StatelessWidget  {
   }
 }
 
-
 class dashboardWidgetExpandable extends StatefulWidget {
 
   @override
@@ -373,9 +384,9 @@ class _dashboardWidgetExpandable extends State<dashboardWidgetExpandable> with S
     
     // TODO: implement build
     return AnimatedContainer(
+      margin: EdgeInsets.only(top: 10,left: 25,right: 25),
       duration: Duration(milliseconds: 1500),
       height: (state) ? 50 : 150,
-      color: Colors.white,
       curve: Curves.bounceOut,
       child: InkWell(
         onTap: () {
@@ -394,6 +405,17 @@ class _dashboardWidgetExpandable extends State<dashboardWidgetExpandable> with S
         ),
 
       ),
+      
+      decoration: BoxDecoration(
+      color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            spreadRadius: 1,
+            blurRadius: 5
+          )
+        ]
+      ),
     );
   }
 
@@ -404,16 +426,36 @@ Widget test () {
 
     child: Container(
       height: 50,
-      child: Container(
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: (!state) ? Colors.black.withOpacity(0.05) : Colors.transparent
+            )
+          )
+        ),
         padding: EdgeInsets.only(left: 25,right: 25),
         alignment: Alignment.centerLeft,
-        child: Text(
-          'Expandable Section',
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black54
-          ),
+        child: Row(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              width: 30,
+              height: 20,
+              child: Image.asset("assets/images/ic_blue_news.png"),
+            ),
+            Expanded(
+              child: Text(
+                'Expandable Section',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black54
+                ),
+              ),
+            )
+          ],
         ),
       ),
     ),
@@ -421,27 +463,20 @@ Widget test () {
 }
 
 Widget test2 () {
-  String text = '''Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry''';
+  String text = '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry''';
   return Expanded(
     child: Container(
-      padding: EdgeInsets.only(left: 25,right: 25,top: 0,bottom: 10),
-      height: 50,
+      padding: EdgeInsets.only(left: 25,right: 25,top: 10,bottom: 10),
       child: Text(
         text,
         maxLines: 5,
         overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontSize: 12
+        ),
       ),
     ),
   );
 }
-
-
 
 }
