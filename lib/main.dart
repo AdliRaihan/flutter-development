@@ -109,9 +109,9 @@ class _launchScreen extends State<launcScreen> {
     rModel.getUsername('').then(
       (value) {
         if (value.isEmpty) {
-          pushToLogin();
+          pushToDashboard();
         } else {
-          pushToLogin();
+          pushToDashboard();
           // pushToDashboard();
         }
       }

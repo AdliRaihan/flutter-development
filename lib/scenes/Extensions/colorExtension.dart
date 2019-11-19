@@ -11,7 +11,7 @@ class colorExtension {
 
   var myColor = <Color>[Color(0xff4e54c8), Color(0xff8f94fb)];
   var flatPrimaryColor = <Color>[Color(0xff4ca1af), Color(0xff734b6d).withOpacity(0)];
-  var flatWhiteColor = <Color>[Color(0xffefefbb), Color(0xffd4d3dd)];
+  var flatWhiteColor = <Color>[Color(0xff8f94fb), Color(0xffffffff)];
 
   var blueSky = Color(0xff4ca1af);
   
@@ -32,8 +32,8 @@ class colorExtension {
   LinearGradient whiteGradient () {
     return LinearGradient(
       colors: flatWhiteColor,
-      begin: const FractionalOffset(1.0, 4.0),
-      end: const FractionalOffset(0.0, 5.0),
+      begin: const FractionalOffset(2.0, 8.0),
+      end: const FractionalOffset(2.0, 0.0),
       stops: [0.0,1.0],
       tileMode: TileMode.clamp
     );
