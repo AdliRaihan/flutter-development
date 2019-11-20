@@ -9,6 +9,7 @@ import 'package:adli_train/scenes/pages/Account/register/register.dart';
 import 'package:adli_train/scenes/pages/Account/register/register.dart' as prefix0;
 import 'package:adli_train/scenes/pages/login/login.dart';
 import 'package:adli_train/scenes/pages/member/dashboard.dart';
+import 'package:adli_train/scenes/pages/tabbar/tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -104,14 +105,21 @@ class _launchScreen extends State<launcScreen> {
     Navigator.pushAndRemoveUntil(context, route, (Route<dynamic> route) => false);
   }
 
+  void pushToTabbar () {
+    Route route = MaterialPageRoute(builder: (context) => tabbar());
+    Navigator.pushAndRemoveUntil(context, route, (Route<dynamic> route) => false);
+  }
+
   void checkCredentials () {
     registerModel rModel = registerModel();
     rModel.getUsername('').then(
       (value) {
         if (value.isEmpty) {
-          pushToDashboard();
+          pushToTabbar();
+          // pushToDashboard();
         } else {
-          pushToDashboard();
+          pushToTabbar();
+          // pushToDashboard();
           // pushToDashboard();
         }
       }

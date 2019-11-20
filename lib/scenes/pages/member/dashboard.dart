@@ -48,6 +48,7 @@ class _dashboard extends StatelessWidget {
 
   ListView lvContent() {
     return ListView(
+      padding: EdgeInsets.only(bottom: 20),
       children: <Widget>[
         Stack(
           children: <Widget>[

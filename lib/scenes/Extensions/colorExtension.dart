@@ -22,8 +22,8 @@ class colorExtension {
   LinearGradient purpleGradient () {
     return LinearGradient(
       colors: myColor,
-      begin: const FractionalOffset(1.0, 4.0),
-      end: const FractionalOffset(0.0, 5.0),
+      begin: const FractionalOffset(1.5, 0.0),
+      end: const FractionalOffset(1.5, 1.5),
       stops: [0.0,1.0],
       tileMode: TileMode.clamp
     );
