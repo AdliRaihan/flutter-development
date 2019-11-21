@@ -346,7 +346,7 @@ class marketHoriItems {
       ),
     );
   }
-}
+} 
 
 class marketDiscountFeatured {
   Widget container() {
