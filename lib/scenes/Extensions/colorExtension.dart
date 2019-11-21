@@ -29,6 +29,16 @@ class colorExtension {
     );
   }
 
+  LinearGradient anotherDirPurpleGradient () {
+    return LinearGradient(
+      colors: myColor,
+      begin: const FractionalOffset(0, 0.0),
+      end: const FractionalOffset(1, 0),
+      stops: [0.0,1.0],
+      tileMode: TileMode.clamp
+    );
+  }
+
   LinearGradient whiteGradient () {
     return LinearGradient(
       colors: flatWhiteColor,

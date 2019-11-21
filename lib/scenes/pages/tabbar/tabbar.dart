@@ -27,36 +27,44 @@ class _tabbar extends StatefulWidget {
 class _tabbar_ extends State<_tabbar> {
   @override
   Widget build(BuildContext context) {
+    var navigation = Container(
+      decoration: BoxDecoration(
+        color: Colors.white, 
+        border: Border(
+          top: BorderSide(
+            color: Colors.black12,
+            width: 0.5
+          )
+        )
+      ),
+      child: new TabBar(
+        indicatorColor: colorExtension().purpleCommonRightColor,
+        labelPadding: EdgeInsets.all(10),
+        labelColor: Colors.black,
+        unselectedLabelColor: Colors.black12,
+        tabs: <Widget>[
+          _buildTab("Dashboard", image: "assets/images/ic_blue_news.png"),
+          _buildTab("Market", image: "assets/images/ic_blue_market.png"),
+          _buildTab("Explore"),
+          _buildTab("Profile")
+        ],
+      ),
+    );
     return Scaffold(
       body: TabBarView(
         children: <Widget>[dashboard(), market(), Container(), Container()],
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 5,
-              spreadRadius: 1)
-        ]),
-        child: new TabBar(
-          indicatorColor: colorExtension().purpleCommonRightColor,
-          labelPadding: EdgeInsets.all(10),
-          labelColor: Colors.black,
-          unselectedLabelColor: Colors.black12,
-          tabs: <Widget>[
-            _buildTab("Dashboard" , image: "assets/images/ic_blue_news.png"),
-            _buildTab("Market",image: "assets/images/ic_blue_market.png"),
-            _buildTab("Explore"),
-            _buildTab("Profile")
-          ],
-        ),
+      bottomNavigationBar: SafeArea(
+        bottom: true,
+        maintainBottomViewPadding: false,
+        minimum: EdgeInsets.zero,
+        child: navigation,
       ),
       backgroundColor: Colors.white,
-
     );
   }
 
-  Widget _buildTab(String text , {String image = "", Icon icon} ) {
+  Widget _buildTab(String text, {String image = "", Icon icon}) {
     return Tab(
         child: Container(
       child: Column(
